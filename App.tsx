@@ -258,7 +258,7 @@ const HeroSection: React.FC = () => {
                         <div className="flex animate-marquee">
                             {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((partner, index) => (
                                 <div key={index} className="flex-shrink-0 w-48 flex items-center justify-center">
-                                    <img src={partner.logo} alt={partner.name} className="max-h-12 max-w-full" />
+                                    <img src={partner.logo} alt={partner.name} className="max-h-20 max-w-full" />
                                 </div>
                             ))}
                         </div>
