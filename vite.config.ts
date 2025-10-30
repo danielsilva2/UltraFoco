@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      base: '/UltraFoco/', // Set base path for GitHub Pages deployment
+      base: '/', // Set base path for Vercel deployment
       server: {
         port: 3000,
         host: '0.0.0.0',
