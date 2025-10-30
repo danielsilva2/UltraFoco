@@ -8,7 +8,17 @@ const NAV_LINKS = [
     { name: 'Tecnologia', href: '#tech' },
 ];
 
-const PARTNER_LOGOS = ['OLX', 'Mercado Livre', 'Webmotors', 'iCarros', 'Autoline', 'Mobiauto'];
+const PARTNER_LOGOS = [
+    { name: 'cliente1', logo: 'img/cliente1.png' },
+    { name: 'cliente2', logo: 'img/cliente2.png' },
+    { name: 'cliente3', logo: 'img/cliente3.png' },
+    { name: 'cliente4', logo: 'img/cliente4.png' },
+    { name: 'cliente5', logo: 'img/cliente5.png' },
+    { name: 'cliente6', logo: 'img/cliente6.png' },
+    { name: 'cliente8', logo: 'img/cliente8.png' },
+    { name: 'cliente9', logo: 'img/cliente9.png' },
+    { name: 'cliente10', logo: 'img/cliente10.png' },
+];
 
 const SOLUTIONS = [
     {
@@ -125,8 +135,8 @@ const AnimatedCounter: React.FC<{ target: number }> = ({ target }) => {
 
 const ImageComparison: React.FC = () => {
     const [sliderValue, setSliderValue] = useState(50);
-    const beforeImage = 'https://picsum.photos/id/1025/800/600?grayscale&blur=2';
-    const afterImage = 'https://picsum.photos/id/1025/800/600';
+    const beforeImage = 'img/lava-seca-antes.webp';
+    const afterImage = 'img/lava-seca-depois.webp';
 
     return (
         <div className="relative w-full max-w-4xl mx-auto aspect-[4/3] rounded-lg overflow-hidden border-4 border-brand-gray shadow-2xl">
@@ -246,9 +256,9 @@ const HeroSection: React.FC = () => {
                     <p className="text-center text-gray-400 mb-4 text-sm font-semibold uppercase tracking-wider">Confiança de Líderes de Mercado</p>
                     <div className="relative w-full overflow-hidden bg-brand-gray-dark/50 py-4 rounded-lg">
                         <div className="flex animate-marquee">
-                            {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((logo, index) => (
+                            {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((partner, index) => (
                                 <div key={index} className="flex-shrink-0 w-48 flex items-center justify-center">
-                                    <span className="text-xl font-bold text-gray-300 font-montserrat">{logo}</span>
+                                    <img src={partner.logo} alt={partner.name} className="max-h-12 max-w-full" />
                                 </div>
                             ))}
                         </div>
@@ -350,9 +360,23 @@ const TechDetailSection: React.FC = () => {
                                 ) : (
                                     <div>
                                         <p className="font-bold text-lg mb-4 text-white">Aumento de Qualidade vs. Tempo</p>
-                                        <div className="flex items-end h-40 space-x-4">
-                                            <div className="flex-1 flex flex-col items-center justify-end"><div className="w-full bg-gray-700 rounded-t-md" style={{height: '25%'}}></div><p className="text-xs mt-2">Manual</p></div>
-                                            <div className="flex-1 flex flex-col items-center justify-end"><div className="w-full bg-brand-violet rounded-t-md" style={{height: '90%'}}></div><p className="text-xs mt-2">Ultra Foco</p></div>
+                                        <div className="flex items-end h-40 space-x-4 relative pt-4">
+                                            <div className="absolute left-0 top-0 h-full w-px bg-gray-600"></div>
+                                            <div className="flex-1 flex flex-col items-center justify-end relative">
+                                                <div className="w-full bg-gray-700 rounded-t-md relative" style={{height: '25%'}}>
+                                                    <span className="absolute -top-6 text-sm text-gray-300 font-semibold">Baixa</span>
+                                                </div>
+                                                <p className="text-xs mt-2 text-gray-400">Manual</p>
+                                            </div>
+                                            <div className="flex-1 flex flex-col items-center justify-end relative">
+                                                <div className="w-full bg-brand-violet rounded-t-md relative" style={{height: '90%'}}>
+                                                    <span className="absolute -top-6 text-sm text-white font-semibold">Alta</span>
+                                                </div>
+                                                <p className="text-xs mt-2 text-gray-400">Ultra Foco</p>
+                                            </div>
+                                        </div>
+                                        <div className="mt-4 text-center text-gray-400 text-sm">
+                                            <p>Comparativo de tempo e esforço para atingir alta qualidade visual.</p>
                                         </div>
                                     </div>
                                 )}
